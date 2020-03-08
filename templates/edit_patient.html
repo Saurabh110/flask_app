@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+{%block content%}
+<h2><font face="verdana" color="green"><b> Edit Patient</b> - {{data[1]}} {{data[2]}} </font></h2>
+<br>
+<div style="width: 40%;">
+<div class="card card-outline-secondary">
+    <div class="card-header" style="background-color: #69b518">
+        <h3 class="mb-0"><b><font color="white">Login</font></b></h3>
+    </div>
+<div class="card-body" style="background-color: #d7fab1">
+	<form class="form" role="form" method="post">
+		<input type="text" name="id" value="{{data[0]}}" hidden>
+	<!-- <table> -->
+		<div class="form-group">
+			<label for="f_name"><b><font color="red">*</font> First Name:</b></label>
+			<input class="form-control" type="text" name="f_name" value="{{data[1]}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" required>
+		</div>		
+		<!-- <tr><td><font color="red">*</font> First Name:</td><td><input class="input" type="text" name="f_name" value="{{data[1]}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" required></td></tr> -->
+		<div class="form-group">
+			<label for="l_name"><b><font color="red">*</font> Last Name:</b></label>
+			<input class="form-control" type="text" name="l_name" value="{{data[2]}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" required>
+		</div>
+
+		<!-- <tr><td><font color="red">*</font> Last Name:</td><td><input class="input" type="text" name="l_name" value="{{data[2]}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" required></td></tr> -->
+
+		<div class="form-group">
+			<label for="email"><b><font color="red">*</font> Email:</b></label>
+			<input id="emailField" class="form-control" type="email" name="email" value="{{data[3]}}" required></td></tr>
+		</div>		
+		<button type="submit" class="btn btn-success float-right" id="btnLogin">Update</button>
+	<!-- </table> -->
+</form>
+<div class="text-danger">* required</div>
+</div>
+</div>
+</div>
+{%endblock%}

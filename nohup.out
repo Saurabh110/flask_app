@@ -1,0 +1,44 @@
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://152.7.99.82:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 193-273-990
+98.246.246.97 - - [08/Mar/2020 05:22:45] "[37mGET /physician_page HTTP/1.1[0m" 200 -
+98.246.246.97 - - [08/Mar/2020 05:22:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ * Detected change in '/home/svshingt/flask_app/main.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 193-273-990
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Traceback (most recent call last):
+  File "main.py", line 174, in <module>
+    app.run(host="152.7.99.82",port=8080,debug=True)
+  File "/home/svshingt/.local/lib/python2.7/site-packages/flask/app.py", line 990, in run
+    run_simple(host, port, self, **options)
+  File "/home/svshingt/.local/lib/python2.7/site-packages/werkzeug/serving.py", line 1030, in run_simple
+    s.bind(server_address)
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+socket.error: [Errno 98] Address already in use
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://152.7.99.82:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 193-273-990
+98.246.246.97 - - [08/Mar/2020 05:24:23] "[37mGET /physician_page HTTP/1.1[0m" 200 -
+98.246.246.97 - - [08/Mar/2020 05:24:23] "[37mGET /static/bootstrap.min.css HTTP/1.1[0m" 200 -
+98.246.246.97 - - [08/Mar/2020 05:24:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+98.246.246.97 - - [08/Mar/2020 05:24:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+98.246.246.97 - - [08/Mar/2020 05:24:26] "[37mGET / HTTP/1.1[0m" 200 -

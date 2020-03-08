@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+{%block content%}
+<!-- <h2><font face="verdana" color="green"><b> Welcome, Please Login</b> </font></h2> -->
+<br>
+<div style="width: 40%;">
+<div class="card card-outline-secondary">
+    <div class="card-header" style="background-color: #69b518">
+        <h3 class="mb-0"><b><font color="white">Login</font></b></h3>
+    </div>
+<div class="card-body" style="background-color: #d7fab1">
+	<form class="form" role="form" method="post">
+	<!-- <table> -->
+		<div class="form-group">
+			<label for="username"><b>Username</b></label>
+			<input style="display: block; width:100%" class="form-control" type="text" id="username" name="username" placeholder="Your email id" value="{{request.form.username}}">
+		</div>
+		<div class="form-group">
+			<label for="password"><b>Password</b></label>
+			<input style="display: block; width:100%" class="form-control"type="password" id="password" name="password" value="{{request.form.password}}">
+		</div>
+		<button type="submit" class="btn btn-success float-right" id="btnLogin">Login</button>
+	</form>
+</div>
+</div>
+</div>
+<div> <a href="/physician_signup" >Register new account</a>
+{%endblock%}

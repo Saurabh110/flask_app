@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{%if page_title%}{{page_title}}{%else%}Welcome{%endif%}</title>
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar" style="min-height:100px">
+      <div class="page-header" style="margin-left: 150px">
+        
+      <a class="navbar-brand" href="/"><img src="https://patagoniahealth.com/wp-content/themes/patagonia/images/logo.png"></a>
+      </div><!-- 
+  <div style="display:inline;">
+    <a href="/" class="btn btn-success  pull-right" type = "button" style="background-color: lightgreen;">Contact us</a>
+  </div> -->
+  {% if session['logged_in'] == True%}
+
+  <div style="display:inline;margin-right: 60px;text-align: center;">
+    <div><b><font color="green">Welcome, Dr. {{session['name']}}</font></b></div>
+    <a href="/logout" class="btn btn-success  pull-right" type = "button">Logout</a>
+  </div>
+  {%else%}
+  <div style="display:inline;margin-right: 60px;">
+    <a href="/login" class="btn btn-success  pull-right" type = "button">Login</a>
+  </div>
+  {%endif%}
+    </nav>
+    <nav class="navbar navbar-light bg-dark">
+      <div class="container" style="">
+        <div style="color: lightgrey;display:inline;">Option 1</div>
+        <div style="color: lightgrey;display:inline;">Option 2</div>
+        <div style="color: lightgrey;display:inline;">Option 3</div>
+        <div style="color: lightgrey;display:inline;">Option 4</div>
+      </div>
+    </nav>
+    <div style="height: 62px;background-color: #65a322;color: white; display: table-cell; width:100%;width: 100vw;vertical-align: middle;"> <div style="margin-left: 14%; display:inline-block;height: 60%;"><font face="verdana"><h4>{%if page_title%}{{page_title}}{%endif%}</h4></font></div></div>
+    <div class="container">
+      <br>
+      {% if error %}
+        <p class="error danger-btn"><font color="red"><strong>Error:</strong> {{ error }}</font></p>
+      {% endif %}
+      {% for message in get_flashed_messages() %}
+        <input id="temp" type="text" name="temp" value="{{message}}" hidden>
+        <script type="text/javascript">
+          const temp = document.getElementById('temp');
+          alert(temp.value);
+        </script>
+      {% endfor %}
+
+      <!-- child template -->
+      {% block content %}{% endblock %}
+
+      <!-- errors -->
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+{%extends "base.html"%}
+{%block content%}
+<br>
+<div style="width: 40%;">
+<div class="card card-outline-secondary">
+	    <div class="card-header" style="background-color: #69b518">
+        <h3 class="mb-0"><b><font color="white">Signup form</font></b></h3>
+    </div>
+<div class="card-body" style="background-color: #d7fab1">    
+<form class="form" role="form" method="post">
+	<!-- <table> -->
+		<div class="form-group">
+			<label for="f_name"><b><font color="red">*</font> First Name</b></label>
+			<input style="display: block; width:100%" class="input" type="text" id="f_name" name="f_name" value="{{request.form.f_name}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" placeholder="Only letters and spaces" required>
+		</div>
+		<!-- <tr><td><font color="red">*</font> First Name:</td><td><input class="input" type="text" name="f_name" value="{{request.form.f_name}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" placeholder="Only letters and spaces" required></td></tr> -->
+
+		<div class="form-group">
+			<label for="l_name"><b><font color="red">*</font> Last Name:</b></label>
+			<input style="display: block; width:100%" class="input" type="text" id="l_name" name="l_name" value="{{request.form.l_name}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" placeholder="Only letters and spaces" required>
+		</div>
+		<!-- <tr><td><font color="red">*</font> Last Name:</td><td><input class="input" type="text" name="l_name" value="{{request.form.l_name}}" pattern="[A-Za-z]+( [A-Za-z]+)*" title="Only letters are allowed" placeholder="Only letters and spaces" required></td></tr> -->
+
+		<div class="form-group">
+			<label for="email"><b><font color="red">*</font> Email:</b></label>
+			<input style="display: block; width:100%" class="input" type="email" id="email" name="email" value="{{request.form.email}}" required>
+		</div>		
+		<!-- <tr><td><font color="red">*</font> Email:</td><td><input class="input" type="email" name="email" value="{{request.form.email}}" required></td></tr> -->
+
+		<div class="form-group">
+			<label for="password"><b><font color="red">*</font> Password:</b></label>
+			<input style="display: block; width:100%" id="password"class="password"type="password" name="password" value="{{request.form.password}}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}" title="Minimum 6 characters, one uppercase, one special case, one number"required>
+		
+		<!-- <tr><td><font color="red">*</font> Password:</td><td><input id="pwd"class="password"type="password" name="password" value="{{request.form.password}}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}" title="Minimum 6 characters, one uppercase, one special case, one number"required></td><td> -->
+		<div class="text-danger" style="display:table-cell; font-size: small;"><div style="vertical-align: top">Minimum 6 characters, one uppercase, one special case, one number</div>
+		</div>
+		</div>
+
+		<div class="form-group">
+			<label for="re-password"><b><font color="red">*</font> Re-Enter Password:</b></label>
+			<input style="display: block; width:100%" id="re-password" class="password"type="password" name="re-password" required>
+		</div>	<!-- 	
+		<tr><td><font color="red">*</font> Re-Enter Password:</td><td><input id="re-password" class="password"type="password" name="re-password" required> -->
+		<button type="submit" class="btn btn-success float-right" id="submitButton">Sign Up</button>
+</form>
+<div class="text-danger">* required</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+const submitButton = document.getElementById('submitButton');
+  
+submitButton.addEventListener('click', function (event) {
+
+	const pwd = document.getElementById('password');
+	const re_pwd = document.getElementById('re-password');
+	if (pwd.value == re_pwd.value){
+  		signUpForm.submit();
+	}
+	else{
+		alert("Passwords Don't Match")
+		pwd.value = ""
+		re_pwd.value = ""
+	}
+
+});
+</script>
+
+{%endblock%}

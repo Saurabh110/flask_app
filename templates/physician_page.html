@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+{%block content%}
+<br>
+	<div style="text-align:end;">
+		<div style="display:inline;">
+			<a href="/add_patient" class="btn btn-success  pull-right" style="background-color: #449900" type = "button">Add New Patient</a>
+		</div>
+	</div>
+	<br>
+	{%if not patients%}
+	<div class="text-danger">
+		<b>You don't have any patients registered yet!</b>
+	</div>
+	{%else%}
+	<table class="table table-striped" style="">
+		<tr style="background-color: #94d154;">
+			<th>ID</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Action</th>
+		</tr>
+        {% for row in patients %}
+			<tr>
+				<td>{{row.0}}</td>
+				<td>{{row.1}}</td>
+				<td>{{row.2}}</td>
+				<td>{{row.3}}</td>
+				<td>
+					<a href="/edit_patient/{{row.0}}" class="btn btn-warning btn-xs">Edit</a>
+                	<a href="/delete/{{ row.0 }}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')">Delete</a>
+				</td>
+            </tr>
+        {%endfor%}
+	</table>
+	{%endif%}
+{%endblock%}
